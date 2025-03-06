@@ -1,0 +1,38 @@
+:host {
+    display: block; /* Asegura que el componente no se expanda innecesariamente */
+  
+    ::ng-deep .styled-item {
+      --min-height: 40px;       /* Altura reducida */
+      --border-radius: 8px;     /* Bordes redondeados */
+      --background: #fff;       /* Fondo del ion-item */
+      --color: #000;            /* Color del texto */
+      --padding-start: 12px;    /* Espaciado a la izquierda */
+      --inner-padding-end: 8px; /* Espaciado a la derecha */
+  
+      /* Ajusta el texto dentro del ion-item */
+      ion-label {
+        font-size: 14px;
+        margin: 0;
+        padding: 0;
+      }
+  
+      /* Estilos específicos para el ion-select */
+      ion-select {
+        --min-height: 32px;      /* Altura interna del select */
+        --padding-start: 8px;    /* Espacio interno a la izquierda */
+        --padding-end: 8px;      /* Espacio interno a la derecha */
+        --border-radius: 4px;    /* Bordes redondeados */
+        --background: #f4f4f4;   /* Fondo gris claro */
+        font-size: 14px;         /* Tamaño de fuente */
+        width: auto;             /* O un ancho fijo, ej: 140px */
+      }
+  
+      /* Ícono dentro del ion-item */
+      .item-icon {
+        font-size: 20px;
+        margin-right: 8px;
+        color: #555;
+      }
+    }
+  }
+  

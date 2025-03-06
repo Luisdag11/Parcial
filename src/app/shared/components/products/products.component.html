@@ -1,0 +1,14 @@
+<ion-content [fullscreen]="true" color="primary">
+  <ion-card *ngFor="let product of products" [routerLink]="['/details/' + product.id]">
+    <ion-card-header>
+      <img [src]="product.image">
+      <ion-card-title>{{ product.title }}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p>{{ product.category }}</p>
+      <p>{{ product.rating.rate }} ⭐</p>
+      <p>{{ product.price | currency:'USD' }}<p>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
+

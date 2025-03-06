@@ -1,0 +1,19 @@
+<ion-card>
+  <ion-card-header>
+    <ion-card-title>{{ item.title }}</ion-card-title>
+  </ion-card-header>
+  
+  <ion-card-content>
+    <ion-thumbnail slot="start">
+      <img [src]="item.image" alt="{{ item.title }}">
+    </ion-thumbnail>
+    <p>Precio: {{ item.price | currency:'USD' }}</p>
+    <p>Cantidad: 
+      {{ item.quantity || 1 }}</p>
+      <br>
+      <app-button value="-" size="small" color="light" (click)="deCreaseCant()"></app-button>
+      <app-button value="+" size="small" color="light" (click)="inCreaseCant()"></app-button>
+  </ion-card-content>
+
+  <app-button value="Eliminar Producto" color="danger" expand="full" (click)="removeItem()"></app-button>
+</ion-card>

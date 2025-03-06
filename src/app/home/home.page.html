@@ -1,0 +1,26 @@
+<ion-header *ngIf="!isLoading" [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Mi tienda Virtual
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button [routerLink]="['/cart']">
+        <ion-icon slot="icon-only" name="cart"></ion-icon>
+        <ion-badge *ngIf="cartItemCount > 0" color="danger"> {{ cartItemCount }}</ion-badge>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <div *ngIf="isLoading" class="splash-screen">
+    <img src="/assets/Logo/Verpi.jpg" alt="Logo de carga">
+  </div>
+
+  <div *ngIf="!isLoading">
+    <app-sort (sortSelected)="sortOrder = $event"></app-sort>
+    <app-select (categorySelected)="categorySelected = $event"></app-select>
+    <app-products [selectedCategory]="categorySelected" [sortOrder]="sortOrder"></app-products>
+  </div>
+</ion-content>

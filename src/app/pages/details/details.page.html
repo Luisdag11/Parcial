@@ -1,0 +1,37 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-buttons slot="end">
+      <ion-button size="default" slot="end" [routerLink]="['/cart']" color="light">
+        <ion-icon slot="icon-only" name="cart"></ion-icon>
+        <ion-badge *ngIf="cartItemCount > 0" color="danger"> {{ cartItemCount }}</ion-badge>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Producto</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/products"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="details">
+  <ion-toolbar color="primary">
+    <ion-card color="secondary">
+      <ion-card-header>
+        <ion-card-title>{{ details.title }}</ion-card-title>
+      </ion-card-header>
+      <img [src]="details.image">
+      <ion-card-content color="secondary">
+        <p>Category: {{ details.category }}</p>
+        <p>Price: {{ details.price | currency:'USD'}}</p>
+        <br>
+        <p>Description: </p>
+        <p>{{ details.description }}</p>
+        <br>
+        <p>Bought: {{ details.rating.count }}+</p>
+        <p>Rating: {{ details.rating.rate }} ⭐</p>
+        <app-button value="Agregar al Carrito" color="light" (click)="addToCart(details)"></app-button>
+      </ion-card-content>
+    </ion-card>
+    <ion-toast trigger="headerAnchor" position="top" positionAnchor="header" message="Añadido con Exito!!" duration="2000" color="success"></ion-toast>
+  </ion-toolbar>
+</ion-content>

@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Resumen de Compra</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Detalles de la Compra</ion-card-title>
+    </ion-card-header>
+    <ion-card-content *ngIf="purchase">
+      <p><strong>Nombre:</strong> {{ purchase.customer.fullName }}</p>
+      <p><strong>Dirección:</strong> {{ purchase.customer.address }}</p>
+
+      <ion-list>
+        <ion-item *ngFor="let item of purchase.cart">
+          <ion-thumbnail slot="start">
+            <img [src]="item.image">
+          </ion-thumbnail>
+          <ion-label>
+            <h2>{{ item.title }}</h2>
+            <p>Precio: {{ item.price | currency:'USD' }}</p>
+          </ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
